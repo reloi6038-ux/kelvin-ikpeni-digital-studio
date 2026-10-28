@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Dashboard | Kelvin Ikpeni</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    body { background: var(--bg-base); color: var(--text-primary); margin: 0; }
+    .admin-header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; background: var(--bg-surface); border-bottom: 1px solid rgba(255,255,255,0.1); }
+    
+    /* Tabs */
+    .tabs { display: flex; gap: 1rem; margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .tab-btn { background: none; border: none; color: var(--text-secondary); padding: 1rem 2rem; font-size: 1.1rem; cursor: pointer; border-bottom: 2px solid transparent; transition: 0.3s; }
+    .tab-btn:hover { color: var(--text-primary); }
+    .tab-btn.active { color: var(--accent-cyan); border-bottom-color: var(--accent-cyan); }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.3s; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Table & Badges */
+    .table { width: 100%; border-collapse: collapse; background: var(--bg-card); border-radius: var(--radius-lg); overflow: hidden; }
+    .table th, .table td { padding: 1rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .table th { background: rgba(0,0,0,0.2); color: var(--accent-cyan); font-weight: 600; }
+    .badge { padding: 0.2rem 0.6rem; border-radius: 50px; font-size: 0.8rem; font-weight: 600; }
+    .bg-green { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
+    .bg-gray { background: rgba(156, 163, 175, 0.2); color: #9ca3af; }
+    .bg-blue { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+    
+    /* Modal & Forms */
+    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); display: none; justify-content: center; align-items: center; z-index: 1000; padding: 1rem; }
+    .modal-overlay.active { display: flex; }
+    .modal-content { background: var(--bg-card); padding: 2.5rem; border-radius: var(--radius-lg); width: 100%; max-width: 700px; max-height: 90vh; overflow-y: auto; border: 1px solid rgba(255,255,255,0.1); }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { display: block; margin-bottom: 0.4rem; font-size: 0.9rem; color: var(--text-secondary); }
+    .form-control { width: 100%; padding: 0.8rem; background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; outline: none; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    
+    /* Analytics Card */
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+    .stat-box { background: var(--bg-card); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid rgba(255,255,255,0.05); text-align: center; }
+    .stat-box h3 { font-size: 2.5rem; color: var(--accent-cyan); margin-bottom: 0.5rem; }
+    .stat-box p { color: var(--text-secondary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+  </style>
+</head>
+<body>
+  <div class="admin-header">
+    <h2 style="margin: 0;">Studio Dashboard</h2>
+    <div style="display: flex; gap: 1rem; align-items: center;">
+      <a href="/" target="_blank" style="color: var(--text-secondary); font-size: 0.9rem;">View Site ↗</a>
+      <button id="logout-btn" class="btn btn-secondary btn-sm">Logout</button>
+    </div>
+  </div>
+
+  <main class="container" style="padding: 3rem 5%;">
+    
+    <div class="tabs">
+      <button class="tab-btn active" data-target="projects-tab">Projects</button>
+      <button class="tab-btn" data-target="inbox-tab">Inbox <span id="inbox-badge" style="background:#ef4444; color:white; border-radius:50%; padding:2px 6px; font-size:0.7rem; display:none;">0</span></button>
+    </div>
+
+    <!-- PROJECTS TAB -->
+    <div id="projects-tab" class="tab-content active">
+      <div class="stat-grid">
+        <div class="stat-box">
+          <h3 id="total-views">0</h3>
+          <p>Total Project Views</p>
+        </div>
+        <div class="stat-box">
+          <h3 id="total-projects">0</h3>
+          <p>Active Projects</p>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h3>Manage Projects</h3>
+        <button id="new-project-btn" class="btn btn-primary">+ New Project</button>
+      </div>
+      
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Views</th>
+            <th>Status</th>
+            <th>Published</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="projects-table-body">
+          <tr><td colspan="5" style="text-align: center;">Loading...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- INBOX TAB -->
+    <div id="inbox-tab" class="tab-content">
+      <h3>Contact Messages</h3>
+      <div id="inbox-list" style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
+        <p style="color: var(--text-secondary);">Loading messages...</p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Modal Form -->
+  <div class="modal-overlay" id="project-modal">
+    <div class="modal-content">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+        <h2 id="modal-title" style="margin: 0;">New Project</h2>
+        <button id="close-modal-btn" style="background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer;">&times;</button>
+      </div>
+      
+      <form id="project-form">
+        <input type="hidden" id="project-id" />
+        
+        <div class="form-group">
+          <label>Project Name</label>
+          <input type="text" id="p-name" class="form-control" required />
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label>Slug</label>
+            <input type="text" id="p-slug" class="form-control" required placeholder="my-project-name" />
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <select id="p-category" class="form-control">
+              <option value="Websites">Websites</option>
+              <option value="Web Applications">Web Applications</option>
+              <option value="Coding Platforms">Coding Platforms</option>
+              <option value="Educational Technology">Educational Technology</option>
+              <option value="Digital Products">Digital Products</option>
+              <option value="Experiments & Open-Source">Experiments & Open-Source</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Short Description</label>
+          <input type="text" id="p-short" class="form-control" required maxlength="200" />
+        </div>
+
+        <div class="form-group">
+          <label>Long Description</label>
+          <textarea id="p-long" class="form-control" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Thumbnail Image URL</label>
+          <input type="url" id="p-image" class="form-control" placeholder="https://..." />
+        </div>
+
+        <div class="form-group">
+          <label>Technologies (Comma separated)</label>
+          <input type="text" id="p-tech" class="form-control" placeholder="Node.js, MongoDB" />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Live URL</label>
+            <input type="url" id="p-live" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label>Repo URL</label>
+            <input type="url" id="p-repo" class="form-control" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Status</label>
+            <select id="p-status" class="form-control">
+              <option value="completed">Completed</option>
+              <option value="in-progress">In Progress</option>
+              <option value="planned">Planned</option>
+            </select>
+          </div>
+          <div class="form-group" style="display: flex; align-items: center; margin-top: 1.5rem;">
+            <input type="checkbox" id="p-featured" style="width: 20px; height: 20px; margin-right: 0.5rem;" />
+            <label for="p-featured" style="margin: 0; cursor: pointer;">Featured</label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group" style="display: flex; align-items: center; margin-top: 1.5rem;">
+            <input type="checkbox" id="p-published" style="width: 20px; height: 20px; margin-right: 0.5rem;" checked />
+            <label for="p-published" style="margin: 0; cursor: pointer;">Published</label>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+          <button type="submit" class="btn btn-primary" style="flex: 1;">Save Project</button>
+          <button type="button" id="cancel-modal-btn" class="btn btn-secondary" style="flex: 1;">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/admin-dashboard.js"></script>
+</body>
+</html>

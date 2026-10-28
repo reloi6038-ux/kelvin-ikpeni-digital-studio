@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Services | Kelvin Ikpeni</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/animations.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="mouse-follower" id="mouse-follower"></div>
+  <div class="animated-bg-grid"></div>
+
+  <nav class="navbar" aria-label="Primary">
+    <div class="container nav-container">
+      <a href="/" class="brand">Kelvin Ikpeni<span class="text-gradient">.</span></a>
+      <div class="nav-links" id="nav-links">
+        <a href="/about">About</a>
+        <a href="/portfolio">Portfolio</a>
+        <a href="/services" style="color: var(--accent-cyan);">Services</a>
+        <a href="/skills">Skills</a>
+        <a href="/experience">Journey</a>
+        <a href="/contact" class="btn btn-primary">Let's Build Something</a>
+      </div>
+      <div style="display:flex; gap:0.75rem; align-items:center;">
+        <button class="theme-toggle" type="button" aria-label="Toggle theme">☀️</button>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content" class="container" style="padding-top: 4rem; padding-bottom: 4rem;">
+    <section class="page-hero reveal">
+      <h1 style="font-size: clamp(2.5rem, 5vw, 4rem);">What I <span class="text-gradient">Build</span></h1>
+      <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 700px;">Practical services I can genuinely deliver — grounded in the technologies I work with daily.</p>
+    </section>
+
+    <section class="services-grid">
+      <article class="service-card glass-panel reveal">
+        <div class="service-icon">💻</div>
+        <h3>Website Development</h3>
+        <p>Fast, responsive websites — personal portfolios, business sites, landing pages. Built with HTML5, CSS3, and vanilla JavaScript.</p>
+      </article>
+      
+      <article class="service-card glass-panel reveal" style="transition-delay: 0.1s;">
+        <div class="service-icon">⚙️</div>
+        <h3>Full-Stack Web Apps</h3>
+        <p>End-to-end builds with Node.js, Express.js, and MongoDB — from database design to a polished frontend.</p>
+      </article>
+
+      <article class="service-card glass-panel reveal" style="transition-delay: 0.2s;">
+        <div class="service-icon">🔌</div>
+        <h3>Backend & REST APIs</h3>
+        <p>Secure, validated REST APIs with authentication, rate limiting, and clear error handling.</p>
+      </article>
+
+      <article class="service-card glass-panel reveal">
+        <div class="service-icon">🎓</div>
+        <h3>Educational Platforms</h3>
+        <p>Coding platforms and learning interfaces — interactive exercises, progress tracking, downloadable certificates.</p>
+      </article>
+
+      <article class="service-card glass-panel reveal" style="transition-delay: 0.1s;">
+        <div class="service-icon">🗄️</div>
+        <h3>Database-Driven Apps</h3>
+        <p>MongoDB-backed apps with clean schemas, indexes, and predictable performance at scale.</p>
+      </article>
+
+      <article class="service-card glass-panel reveal" style="transition-delay: 0.2s;">
+        <div class="service-icon">🛠️</div>
+        <h3>Maintenance & Fixes</h3>
+        <p>Auditing existing sites for security, performance, and accessibility, then fixing the issues found.</p>
+      </article>
+    </section>
+
+    <section style="padding-bottom:5rem; text-align:center; margin-top: 4rem;">
+      <div class="glass-panel reveal" style="max-width:640px; margin:0 auto; padding:3rem;">
+        <h2 style="margin-bottom:1rem;">Have a project in mind?</h2>
+        <p style="color:var(--text-secondary); margin-bottom:1.5rem;">Let's talk about what you're building and whether I'm a good fit.</p>
+        <a href="/contact" class="btn btn-primary">Start a Conversation</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="/" class="brand" style="display:inline-block; margin-bottom:1rem;">Kelvin Ikpeni<span class="text-gradient">.</span></a>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; max-width: 320px;">Building ideas into digital experiences.</p>
+        </div>
+        <div>
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">&copy; <span id="footer-year"></span> Kelvin Ikpeni Digital Studio.</div>
+    </div>
+  </footer>
+  <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
+  <script src="/js/main.js"></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

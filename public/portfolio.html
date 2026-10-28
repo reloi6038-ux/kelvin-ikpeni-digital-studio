@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio | Kelvin Ikpeni Digital Studio</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/animations.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <nav class="navbar" aria-label="Primary">
+    <div class="container nav-container">
+      <a href="/" class="brand">Kelvin Ikpeni<span class="text-gradient">.</span></a>
+      <div class="nav-links" id="nav-links">
+        <a href="/about">About</a>
+        <a href="/portfolio" style="color: var(--accent-cyan);">Portfolio</a>
+        <a href="/services">Services</a>
+        <a href="/skills">Skills</a>
+        <a href="/experience">Journey</a>
+        <a href="/contact" class="btn btn-primary">Let's Build Something</a>
+      </div>
+      <div style="display:flex; gap:0.75rem; align-items:center;">
+        <button class="theme-toggle" type="button" aria-label="Toggle theme">☀️</button>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content" class="section container" style="padding-top: 150px;">
+    <h1 style="font-size: 3rem; margin-bottom: 1rem;">Full Portfolio</h1>
+    <p style="color: var(--text-secondary); margin-bottom: 3rem;">Explore my websites, web applications, coding platforms, and experiments.</p>
+
+    <div style="display: flex; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap;">
+      <select id="category-filter" style="padding: 0.8rem; background: var(--bg-card); color: white; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; outline: none;">
+        <option value="All">All Categories</option>
+      </select>
+      <input type="text" id="search-input" placeholder="Search projects..." style="padding: 0.8rem; background: var(--bg-card); color: white; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; flex: 1; min-width: 200px; outline: none;">
+    </div>
+
+    <div id="portfolio-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem;">
+      <p style="color: var(--text-secondary); grid-column: 1 / -1;">Loading projects...</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="/" class="brand" style="display:inline-block; margin-bottom:1rem;">Kelvin Ikpeni<span class="text-gradient">.</span></a>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; max-width: 320px;">
+            Building ideas into digital experiences — websites, web applications, and digital products.
+          </p>
+        </div>
+        <div>
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; <span id="footer-year"></span> Kelvin Ikpeni Digital Studio. All rights reserved.
+      </div>
+    </div>
+  </footer>
+  <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/portfolio.js"></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

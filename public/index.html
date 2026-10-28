@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kelvin Ikpeni | Full-Stack Developer & Digital Creator</title>
+  <meta name="description" content="I am Kelvin Ikpeni, a full-stack web developer building websites, web applications, and digital experiences that turn ideas into reality." />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/animations.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="mouse-follower" id="mouse-follower"></div>
+  <div class="animated-bg-grid"></div>
+
+  <nav class="navbar" aria-label="Primary">
+    <div class="container nav-container">
+      <a href="/" class="brand">Kelvin Ikpeni<span class="text-gradient">.</span></a>
+      <div class="nav-links" id="nav-links">
+        <a href="/about">About</a>
+        <a href="/portfolio">Portfolio</a>
+        <a href="/services">Services</a>
+        <a href="/skills">Skills</a>
+        <a href="/experience">Journey</a>
+        <a href="/contact" class="btn btn-primary">Let's Build Something</a>
+      </div>
+      <div style="display:flex; gap:0.75rem; align-items:center;">
+        <button class="theme-toggle" type="button" aria-label="Toggle theme">☀️</button>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    
+    <!-- HERO SECTION -->
+    <header class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <div class="availability-badge reveal">
+            <span class="dot"></span> Available for work
+          </div>
+          <h1 class="reveal" style="font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; margin-bottom: 1rem;">
+            Building Ideas Into <br><span class="text-gradient">Digital Experiences.</span>
+          </h1>
+          <div class="typewriter-container reveal" style="font-size: 1.25rem; color: var(--accent-cyan); margin-bottom: 1.5rem; height: 30px; font-weight: 600;">
+            I am a <span id="typewriter"></span><span class="cursor">|</span>
+          </div>
+          <p class="reveal" style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem; max-width: 500px;">
+            I am Kelvin Ikpeni — a full-stack developer passionate about crafting secure, scalable, and beautiful web applications from the ground up.
+          </p>
+          <div class="reveal" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="/portfolio" class="btn btn-primary">Explore My Work</a>
+            <a href="/contact" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+        
+        <div class="hero-visual reveal">
+          <div class="image-container">
+            <img src="https://i.ibb.co/8g2FYCFM/developer.png" alt="Kelvin Ikpeni - Developer" class="profile-img" />
+            <div class="floating-badge badge-1">💻 Node.js</div>
+            <div class="floating-badge badge-2">⚡ Express</div>
+            <div class="floating-badge badge-3">🗄️ MongoDB</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- INFINITE MARQUEE -->
+    <section class="marquee-section">
+      <div class="marquee-content">
+        <span>HTML5</span> • <span>CSS3</span> • <span>JavaScript</span> • <span>Node.js</span> • 
+        <span>Express.js</span> • <span>MongoDB</span> • <span>REST APIs</span> • <span>Git</span> • 
+        <span>GitHub</span> • <span>Render</span> • <span>HTML5</span> • <span>CSS3</span> • 
+        <span>JavaScript</span> • <span>Node.js</span> • <span>Express.js</span> • <span>MongoDB</span> •
+        <span>REST APIs</span> • <span>Git</span> • <span>GitHub</span> • <span>Render</span>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS GRID -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <h2 style="font-size: 2.5rem;">Selected Work</h2>
+            <p style="color: var(--text-secondary); margin-top: 0.5rem;">A few of the digital products I have built.</p>
+          </div>
+          <a href="/portfolio" class="btn btn-secondary">View All Projects &rarr;</a>
+        </div>
+        
+        <!-- Added class "projects-grid" for the grid layout -->
+        <div id="featured-projects-grid" class="projects-grid">
+          <p style="color: var(--text-secondary); grid-column: 1 / -1;">Loading projects...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS SECTION -->
+    <section class="section" style="background: var(--bg-surface); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+      <div class="container">
+        <h2 class="reveal" style="font-size: 2.5rem; text-align: center; margin-bottom: 3rem;">How I Bring Ideas to Life</h2>
+        <div class="process-grid">
+          <div class="process-card reveal">
+            <div class="step-number">01</div>
+            <h3>Discover & Plan</h3>
+            <p>Understanding your goals, target audience, and technical requirements to build a solid roadmap.</p>
+          </div>
+          <div class="process-card reveal" style="transition-delay: 0.1s;">
+            <div class="step-number">02</div>
+            <h3>Design & Build</h3>
+            <p>Writing clean, scalable code and designing intuitive interfaces that deliver a premium user experience.</p>
+          </div>
+          <div class="process-card reveal" style="transition-delay: 0.2s;">
+            <div class="step-number">03</div>
+            <h3>Test & Deploy</h3>
+            <p>Rigorous testing for security, accessibility, and performance before launching your product to the world.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="section">
+      <div class="container" style="max-width: 800px;">
+        <h2 class="reveal" style="font-size: 2.5rem; text-align: center; margin-bottom: 3rem;">Frequently Asked Questions</h2>
+        
+        <details class="faq-item reveal">
+          <summary>What technologies do you use?</summary>
+          <div class="faq-content">
+            <p>I specialize in the Node.js stack — meaning I use JavaScript/TypeScript on both the frontend and backend. My core tools are Node.js, Express.js, MongoDB, and vanilla CSS/JS, though I am always adapting to the best tool for the job.</p>
+          </div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary>Do you build custom designs or use templates?</summary>
+          <div class="faq-content">
+            <p>Everything is built from scratch. I do not use WordPress themes or generic templates. Every line of code and every pixel is crafted specifically for your brand and requirements.</p>
+          </div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary>How long does a project take?</summary>
+          <div class="faq-content">
+            <p>It depends entirely on the scope. A simple portfolio takes 1-2 weeks, while a complex full-stack web application or marketplace can take 4-8 weeks. We will establish a clear timeline before starting.</p>
+          </div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary>Do you offer maintenance after launch?</summary>
+          <div class="faq-content">
+            <p>Yes! I offer ongoing maintenance and support to ensure your website stays secure, updated, and performs flawlessly as your business grows.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="section" style="text-align: center;">
+      <div class="container reveal">
+        <div class="content-card" style="max-width: 700px; margin: 0 auto; padding: 4rem 2rem; background: linear-gradient(180deg, var(--bg-card), rgba(99, 102, 241, 0.05));">
+          <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Ready to build something amazing?</h2>
+          <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.1rem;">Let's turn your vision into a digital reality. I'm currently available for freelance projects and collaborations.</p>
+          <a href="/contact" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Start a Project</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="/" class="brand" style="display:inline-block; margin-bottom:1rem;">Kelvin Ikpeni<span class="text-gradient">.</span></a>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; max-width: 320px;">
+            Building ideas into digital experiences — websites, web applications, and digital products.
+          </p>
+        </div>
+        <div>
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; <span id="footer-year"></span> Kelvin Ikpeni Digital Studio. All rights reserved.
+      </div>
+    </div>
+  </footer>
+  <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
+
+  <script src="/js/main.js"></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

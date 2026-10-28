@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About | Kelvin Ikpeni</title>
+  <meta name="description" content="Learn about Kelvin Ikpeni, a full-stack web developer and digital product builder." />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/animations.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="mouse-follower" id="mouse-follower"></div>
+  <div class="animated-bg-grid"></div>
+
+  <nav class="navbar" aria-label="Primary">
+    <div class="container nav-container">
+      <a href="/" class="brand">Kelvin Ikpeni<span class="text-gradient">.</span></a>
+      <div class="nav-links" id="nav-links">
+        <a href="/about" style="color: var(--accent-cyan);">About</a>
+        <a href="/portfolio">Portfolio</a>
+        <a href="/services">Services</a>
+        <a href="/skills">Skills</a>
+        <a href="/experience">Journey</a>
+        <a href="/contact" class="btn btn-primary">Let's Build Something</a>
+      </div>
+      <div style="display:flex; gap:0.75rem; align-items:center;">
+        <button class="theme-toggle" type="button" aria-label="Toggle theme">☀️</button>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content" class="container" style="padding-top: 4rem; padding-bottom: 4rem;">
+    <div class="about-layout">
+      
+      <!-- Sidebar / Profile Card -->
+      <aside class="about-sidebar reveal">
+        <div class="profile-card glass-panel">
+          <img src="https://i.ibb.co/8g2FYCFM/developer.png" alt="Kelvin Ikpeni" class="profile-thumb" />
+          <h2>Kelvin Ikpeni</h2>
+          <p style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 1.5rem;">Full-Stack Developer</p>
+          
+          <div class="sidebar-stats">
+            <div class="stat-row">
+              <span>Location</span>
+              <strong>Nigeria</strong>
+            </div>
+            <div class="stat-row">
+              <span>Experience</span>
+              <strong>Full-Stack</strong>
+            </div>
+            <div class="stat-row">
+              <span>Status</span>
+              <strong style="color: #4ade80;">Available</strong>
+            </div>
+          </div>
+          
+          <a href="/contact" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Hire Me</a>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="about-content">
+        <div class="content-card reveal glass-panel" style="margin-bottom: 2rem;">
+          <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Turning Complex Problems Into <span class="text-gradient">Elegant Solutions.</span></h1>
+          <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+            Kelvin Ikpeni Digital Studio was built on a simple belief: <strong>Ideas are only as powerful as the digital experiences that bring them to life.</strong> 
+            My approach to web development is practical, learning-driven, and focused on continuous improvement.
+          </p>
+          <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.8;">
+            I am a web developer and digital product builder with a deep interest in full-stack architecture and interactive coding platforms. My current focus is on creating educational technology, marketplaces, and custom web applications using Node.js, Express.js, and MongoDB.
+          </p>
+        </div>
+
+        <div class="content-card reveal glass-panel" style="transition-delay: 0.1s;">
+          <h2 style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--accent-cyan);">My Philosophy</h2>
+          <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem;">
+            Whether I am building a full-scale learning platform like the <em>Kelvin Ikpeni Dev Bootcamp</em> or architecting a multi-vendor marketplace, my goal remains the same:
+          </p>
+          <ul style="list-style: none; padding: 0; display: grid; gap: 1rem;">
+            <li style="display: flex; gap: 0.5rem; color: var(--text-primary);"><span style="color: var(--accent-cyan);">✔</span> Build fast, secure, and accessible digital products.</li>
+            <li style="display: flex; gap: 0.5rem; color: var(--text-primary);"><span style="color: var(--accent-cyan);">✔</span> Write clean, maintainable code that scales.</li>
+            <li style="display: flex; gap: 0.5rem; color: var(--text-primary);"><span style="color: var(--accent-cyan);">✔</span> Leave a lasting impression on every user.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="/" class="brand" style="display:inline-block; margin-bottom:1rem;">Kelvin Ikpeni<span class="text-gradient">.</span></a>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; max-width: 320px;">
+            Building ideas into digital experiences — websites, web applications, and digital products.
+          </p>
+        </div>
+        <div>
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; <span id="footer-year"></span> Kelvin Ikpeni Digital Studio. All rights reserved.
+      </div>
+    </div>
+  </footer>
+  <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
+
+  <script src="/js/main.js"></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

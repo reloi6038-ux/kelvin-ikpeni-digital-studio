@@ -1,0 +1,38 @@
+{
+  "name": "kelvin-ikpeni-digital-studio",
+  "version": "1.0.0",
+  "description": "Kelvin Ikpeni Digital Studio — portfolio, project showcase, and digital product hub.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "seed": "node scripts/seedProjects.js"
+  },
+  "keywords": [
+    "portfolio",
+    "express",
+    "mongodb",
+    "kelvin-ikpeni"
+  ],
+  "author": "Kelvin Ikpeni",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "@exortek/express-mongo-sanitize": "^4.0.0",
+    "bcryptjs": "^3.0.3",
+    "compression": "^1.8.2",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.9",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.1",
+    "express-validator": "^7.3.2",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.11.4",
+    "morgan": "^1.12.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
