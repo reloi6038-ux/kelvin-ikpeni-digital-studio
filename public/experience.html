@@ -18,6 +18,10 @@
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="mouse-follower" id="mouse-follower"></div>
+  <div class="animated-bg-grid"></div>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
 
   <nav class="navbar" aria-label="Primary">
     <div class="container nav-container">
@@ -37,34 +41,93 @@
     </div>
   </nav>
 
-  <main id="main-content" class="container" style="padding-top: 4rem; padding-bottom: 4rem;">
-    <section class="page-hero">
-      <h1 class="reveal" style="font-size: clamp(2.5rem, 5vw, 4rem);">Learning <span class="text-gradient">Journey</span></h1>
-      <p class="reveal" style="color: var(--text-secondary); font-size: 1.1rem; max-width: 700px;">Milestones, projects, and ongoing study. Every item below reflects actual work — not hypothetical experience.</p>
+  <main id="main-content" class="container" style="padding-top: 4rem; padding-bottom: 6rem; max-width: 900px;">
+    <section class="page-hero reveal">
+      <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem;">The <span class="text-gradient">Journey</span></h1>
+      <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">
+        Every line of code tells a story. From the first spark of curiosity to architecting scalable full-stack applications, this is the timeline of how I turned a fascination with the web into a dedicated craft.
+      </p>
     </section>
 
-    <section style="padding-bottom:5rem; max-width:820px;">
-      <div class="content-card reveal" style="margin-bottom:1.5rem;">
-        <span style="color: var(--accent-cyan); font-size:0.85rem; letter-spacing:1px; text-transform:uppercase; font-weight:600;">2024 — Present</span>
-        <h3 style="margin-top:0.5rem; margin-bottom:0.5rem;">Full-Stack Development & Portfolio Platform</h3>
-        <p style="color:var(--text-secondary);">Built and shipped this studio site end-to-end: Node.js + Express backend, MongoDB Atlas database, JWT admin auth, and a hand-coded vanilla JS frontend. Continuously improving accessibility, performance, and features.</p>
+    <!-- TIMELINE SECTION -->
+    <section class="timeline-container">
+      
+      <!-- Item 1 -->
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content glass-panel">
+          <span class="timeline-date">2024 — Present</span>
+          <h3>The Full-Stack Architect</h3>
+          <p>
+            Building and shipping this very studio end-to-end was a milestone. It wasn't just about writing code; it was about engineering a secure, production-ready ecosystem. From architecting the Node.js/Express backend and integrating MongoDB Atlas, to implementing JWT authentication and crafting pixel-perfect, animated frontends with pure vanilla JavaScript.
+          </p>
+          <div class="timeline-tags">
+            <span class="tech-badge">Node.js</span>
+            <span class="tech-badge">Express</span>
+            <span class="tech-badge">MongoDB</span>
+            <span class="tech-badge">Security</span>
+          </div>
+        </div>
       </div>
-      <div class="content-card reveal" style="margin-bottom:1.5rem;">
-        <span style="color: var(--accent-cyan); font-size:0.85rem; letter-spacing:1px; text-transform:uppercase; font-weight:600;">2024</span>
-        <h3 style="margin-top:0.5rem; margin-bottom:0.5rem;">Kelvin Ikpeni Dev Bootcamp</h3>
-        <p style="color:var(--text-secondary);">Designed and developing a learning platform for absolute beginners — guided lessons, exercises, and course completion certificates. Currently in progress.</p>
+
+      <!-- Item 2 -->
+      <div class="timeline-item reveal" style="transition-delay: 0.1s;">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content glass-panel">
+          <span class="timeline-date">2024 — In Progress</span>
+          <h3>Kelvin Ikpeni Dev Bootcamp</h3>
+          <p>
+            The belief that knowledge should be accessible birthed the Dev Bootcamp. I am designing a comprehensive learning platform for absolute beginners—complete with guided lessons, interactive coding exercises, and verifiable certification. It is an exercise in building tools that genuinely empower others to step into tech.
+          </p>
+          <div class="timeline-tags">
+            <span class="tech-badge">EdTech</span>
+            <span class="tech-badge">LMS Architecture</span>
+            <span class="tech-badge">UX Design</span>
+          </div>
+        </div>
       </div>
-      <div class="content-card reveal" style="margin-bottom:1.5rem;">
-        <span style="color: var(--accent-cyan); font-size:0.85rem; letter-spacing:1px; text-transform:uppercase; font-weight:600;">2023 — 2024</span>
-        <h3 style="margin-top:0.5rem; margin-bottom:0.5rem;">Kelvin Ikpeni University (KIU)</h3>
-        <p style="color:var(--text-secondary);">Built an educational website to deliver course content and student enrollment features. Full-stack, Node.js + Express.js + MongoDB.</p>
+
+      <!-- Item 3 -->
+      <div class="timeline-item reveal" style="transition-delay: 0.2s;">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content glass-panel">
+          <span class="timeline-date">2023 — 2024</span>
+          <h3>Kelvin Ikpeni University (KIU)</h3>
+          <p>
+            KIU was my deep dive into database-driven applications. The challenge was to build a robust educational portal capable of managing dynamic content and student enrollments. This project solidified my understanding of relational data models, server-side rendering, and scalable backend architecture.
+          </p>
+          <div class="timeline-tags">
+            <span class="tech-badge">Full-Stack</span>
+            <span class="tech-badge">Database Design</span>
+          </div>
+        </div>
       </div>
-      <div class="content-card reveal" style="margin-bottom:1.5rem;">
-        <span style="color: var(--accent-cyan); font-size:0.85rem; letter-spacing:1px; text-transform:uppercase; font-weight:600;">Foundation</span>
-        <h3 style="margin-top:0.5rem; margin-bottom:0.5rem;">Web Fundamentals</h3>
-        <p style="color:var(--text-secondary);">Semantic HTML5, modern CSS3 layout systems, and vanilla JavaScript — the foundation every subsequent project builds on.</p>
+
+      <!-- Item 4 -->
+      <div class="timeline-item reveal" style="transition-delay: 0.3s;">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content glass-panel">
+          <span class="timeline-date">The Foundation</span>
+          <h3>The Spark of Curiosity</h3>
+          <p>
+            Every engineer starts somewhere. My journey began with a simple question: "How does the internet actually work?" That curiosity led me down the rabbit hole of semantic HTML5, complex CSS3 layouts, and the raw power of vanilla JavaScript. I learned that the best way to understand a framework is to build without one first.
+          </p>
+          <div class="timeline-tags">
+            <span class="tech-badge">HTML5</span>
+            <span class="tech-badge">CSS3</span>
+            <span class="tech-badge">JavaScript</span>
+          </div>
+        </div>
       </div>
+
     </section>
+
+    <!-- CLOSING CTA -->
+    <div class="reveal" style="text-align: center; margin-top: 5rem;">
+      <h2 style="font-size: 2rem; margin-bottom: 1rem;">The next chapter is unwritten.</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem;">I am always looking for new challenges, collaborators, and opportunities to build the future of the web.</p>
+      <a href="/contact" class="btn btn-primary">Write the Next Chapter With Me</a>
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -72,7 +135,9 @@
       <div class="footer-grid">
         <div>
           <a href="/" class="brand" style="display:inline-block; margin-bottom:1rem;">Kelvin Ikpeni<span class="text-gradient">.</span></a>
-          <p style="color: var(--text-secondary); font-size: 0.95rem; max-width: 320px;">Building ideas into digital experiences.</p>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; max-width: 320px;">
+            Building ideas into digital experiences — websites, web applications, and digital products.
+          </p>
         </div>
         <div>
           <h4>Navigate</h4>
@@ -91,10 +156,13 @@
           </ul>
         </div>
       </div>
-      <div class="footer-bottom">&copy; <span id="footer-year"></span> Kelvin Ikpeni Digital Studio.</div>
+      <div class="footer-bottom">
+        &copy; <span id="footer-year"></span> Kelvin Ikpeni Digital Studio. All rights reserved.
+      </div>
     </div>
   </footer>
   <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
+
   <script src="/js/main.js"></script>
   <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
 </body>

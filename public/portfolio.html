@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio | Kelvin Ikpeni Digital Studio</title>
+  <title>Portfolio | Kelvin Ikpeni</title>
+  <meta name="description" content="Explore the digital portfolio of Kelvin Ikpeni. Websites, web applications, coding platforms, and experiments." />
   <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +18,10 @@
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="mouse-follower" id="mouse-follower"></div>
+  <div class="animated-bg-grid"></div>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
 
   <nav class="navbar" aria-label="Primary">
     <div class="container nav-container">
@@ -36,20 +41,65 @@
     </div>
   </nav>
 
-  <main id="main-content" class="section container" style="padding-top: 150px;">
-    <h1 style="font-size: 3rem; margin-bottom: 1rem;">Full Portfolio</h1>
-    <p style="color: var(--text-secondary); margin-bottom: 3rem;">Explore my websites, web applications, coding platforms, and experiments.</p>
+  <main id="main-content" class="container" style="padding-top: 4rem; padding-bottom: 5rem;">
+    
+    <section class="page-hero reveal" style="text-align: center; padding-bottom: 2rem;">
+      <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem;">The <span class="text-gradient">Portfolio</span></h1>
+      <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+        A curated collection of my digital creations. From full-stack platforms to interactive frontends, explore the work that defines my craft.
+      </p>
+    </section>
 
-    <div style="display: flex; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap;">
-      <select id="category-filter" style="padding: 0.8rem; background: var(--bg-card); color: white; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; outline: none;">
-        <option value="All">All Categories</option>
-      </select>
-      <input type="text" id="search-input" placeholder="Search projects..." style="padding: 0.8rem; background: var(--bg-card); color: white; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; flex: 1; min-width: 200px; outline: none;">
+    <!-- PREMIUM FILTER BAR -->
+    <section class="filter-bar glass-panel reveal" style="margin-bottom: 3rem; padding: 1.5rem; border-radius: var(--radius-lg);">
+      <div class="filter-grid">
+        
+        <div class="filter-group">
+          <label for="search-input" class="sr-only">Search</label>
+          <input type="text" id="search-input" placeholder="Search projects..." class="filter-input" />
+          <span class="search-icon">🔍</span>
+        </div>
+
+        <div class="filter-group">
+          <select id="category-filter" class="filter-input" aria-label="Filter by category">
+            <option value="All">All Categories</option>
+            <!-- Populated by JS -->
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <select id="sort-filter" class="filter-input" aria-label="Sort projects">
+            <option value="featured">Featured First</option>
+            <option value="newest">Newest Arrivals</option>
+            <option value="oldest">Oldest First</option>
+          </select>
+        </div>
+
+        <!-- View Toggle -->
+        <div class="view-toggle">
+          <button id="view-grid" class="view-btn active" aria-label="Grid View">▦</button>
+          <button id="view-list" class="view-btn" aria-label="List View">☰</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RESULTS INFO -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;" class="reveal">
+      <p id="results-count" style="color: var(--text-secondary); font-size: 0.9rem;">Showing all projects</p>
     </div>
 
-    <div id="portfolio-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem;">
-      <p style="color: var(--text-secondary); grid-column: 1 / -1;">Loading projects...</p>
+    <!-- PROJECTS GRID -->
+    <div id="portfolio-grid" class="projects-grid tilt-grid">
+      <!-- Skeleton Loaders (will be replaced by JS) -->
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
     </div>
+
   </main>
 
   <footer class="site-footer">
