@@ -1,25 +1,27 @@
-// public/js/main.js — Global site behavior & Featured Projects
+// public/js/main.js — Global site behavior
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initMobileNav();
   initScrollProgress();
   initBackToTop();
   initRevealOnScroll();
+  initMouseFollower();
   
-  // Only run on the homepage
+  // Homepage specific
   if (document.getElementById('featured-projects-grid')) {
     loadFeaturedProjects();
+    initTypewriter();
+    initCountUp();
+    init3DTilt();
   }
 });
 
 /* ---------------------------------------------------------
-   THEME TOGGLE (persists in localStorage)
+   THEME TOGGLE
    --------------------------------------------------------- */
 function initTheme() {
   const root = document.documentElement;
   const stored = localStorage.getItem('theme');
-  
-  // DARK MODE IS THE DEFAULT (ignores system preferences)
   const initial = stored || 'dark'; 
   
   root.setAttribute('data-theme', initial);
@@ -44,7 +46,131 @@ function syncThemeButton(theme) {
 }
 
 /* ---------------------------------------------------------
-   MOBILE NAVIGATION DRAWER
+   DYNAMIC TYPEWRITER
+   --------------------------------------------------------- */
+function initTypewriter() {
+  const target = document.getElementById('typewriter');
+  if (!target) return;
+
+  const sentences = [
+    "crafting scalable backends with Node.js & MongoDB.",
+    "building beautiful, responsive frontend interfaces.",
+    "turning complex ideas into seamless digital realities."
+  ];
+
+  let sentenceIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let typeSpeed = 50;
+
+  function type() {
+    const currentSentence = sentences[sentenceIndex];
+    
+    if (isDeleting) {
+      target.textContent = currentSentence.substring(0, charIndex - 1);
+      charIndex--;
+      typeSpeed = 25; // Deletes faster
+    } else {
+      target.textContent = currentSentence.substring(0, charIndex + 1);
+      charIndex++;
+      typeSpeed = 60; // Typing speed
+    }
+
+    // Logic for pausing and switching
+    if (!isDeleting && charIndex === currentSentence.length) {
+      typeSpeed = 2500; // Pause at the end of the sentence
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      sentenceIndex = (sentenceIndex + 1) % sentences.length;
+      typeSpeed = 500; // Pause before typing the next sentence
+    }
+
+    setTimeout(type, typeSpeed);
+  }
+
+  setTimeout(type, 1000); // Start after 1 second
+}
+
+/* ---------------------------------------------------------
+   COUNT UP STATS
+   --------------------------------------------------------- */
+function initCountUp() {
+  const counters = document.querySelectorAll('.count-up');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const target = entry.target;
+        const endValue = parseInt(target.getAttribute('data-target'));
+        const suffix = target.getAttribute('data-suffix') || '';
+        let currentValue = 0;
+        const duration = 1500; // 1.5 seconds
+        const increment = endValue / (duration / 16); // 60fps
+
+        const updateCounter = () => {
+          currentValue += increment;
+          if (currentValue < endValue) {
+            target.textContent = Math.ceil(currentValue) + suffix;
+            requestAnimationFrame(updateCounter);
+          } else {
+            target.textContent = endValue + suffix;
+          }
+        };
+        
+        updateCounter();
+        observer.unobserve(target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(counter => observer.observe(counter));
+}
+
+/* ---------------------------------------------------------
+   3D TILT EFFECT (Vanilla JS)
+   --------------------------------------------------------- */
+function init3DTilt() {
+  const cards = document.querySelectorAll('.project-card');
+  
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = ((y - centerY) / centerY) * -10; // Max rotation 10deg
+      const rotateY = ((x - centerX) / centerX) * 10;
+      
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      card.style.transition = 'none'; // Remove transition for smooth tracking
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+      card.style.transition = 'transform 0.5s ease'; // Smooth reset
+    });
+  });
+}
+
+/* ---------------------------------------------------------
+   MOUSE FOLLOWER
+   --------------------------------------------------------- */
+function initMouseFollower() {
+  const follower = document.getElementById('mouse-follower');
+  if (!follower) return;
+
+  document.addEventListener('mousemove', (e) => {
+    follower.style.left = `${e.clientX}px`;
+    follower.style.top = `${e.clientY}px`;
+  });
+}
+
+/* ---------------------------------------------------------
+   OTHER GLOBAL BEHAVIORS
    --------------------------------------------------------- */
 function initMobileNav() {
   const toggle = document.querySelector('.nav-toggle');
@@ -56,27 +182,14 @@ function initMobileNav() {
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 
-  // Close drawer when a link is clicked
   links.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       links.classList.remove('is-open');
       toggle.setAttribute('aria-expanded', 'false');
     });
   });
-
-  // Close on Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && links.classList.contains('is-open')) {
-      links.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.focus();
-    }
-  });
 }
 
-/* ---------------------------------------------------------
-   SCROLL PROGRESS BAR
-   --------------------------------------------------------- */
 function initScrollProgress() {
   const bar = document.querySelector('.scroll-progress');
   if (!bar) return;
@@ -90,9 +203,6 @@ function initScrollProgress() {
   update();
 }
 
-/* ---------------------------------------------------------
-   BACK TO TOP
-   --------------------------------------------------------- */
 function initBackToTop() {
   const btn = document.querySelector('.back-to-top');
   if (!btn) return;
@@ -102,9 +212,6 @@ function initBackToTop() {
   btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 }
 
-/* ---------------------------------------------------------
-   REVEAL ON SCROLL (IntersectionObserver)
-   --------------------------------------------------------- */
 function initRevealOnScroll() {
   const els = document.querySelectorAll('.reveal');
   if (!els.length) return;
@@ -172,8 +279,9 @@ async function loadFeaturedProjects() {
       grid.appendChild(card);
     });
 
-    // Re-trigger the reveal observer for the newly added cards
+    // Re-initialize effects for the newly added cards
     initRevealOnScroll();
+    init3DTilt();
 
   } catch (error) {
     console.error('Error:', error);

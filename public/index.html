@@ -19,7 +19,11 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="scroll-progress" aria-hidden="true"></div>
   <div class="mouse-follower" id="mouse-follower"></div>
+  
+  <!-- Ambient Background Elements -->
   <div class="animated-bg-grid"></div>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
 
   <nav class="navbar" aria-label="Primary">
     <div class="container nav-container">
@@ -51,9 +55,12 @@
           <h1 class="reveal" style="font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; margin-bottom: 1rem;">
             Building Ideas Into <br><span class="text-gradient">Digital Experiences.</span>
           </h1>
-          <div class="typewriter-container reveal" style="font-size: 1.25rem; color: var(--accent-cyan); margin-bottom: 1.5rem; height: 30px; font-weight: 600;">
-            I am a <span id="typewriter"></span><span class="cursor">|</span>
+          
+          <!-- NEW TYPEWRITER SECTION -->
+          <div class="typewriter-container reveal" style="font-size: 1.25rem; color: var(--accent-cyan); margin-bottom: 1.5rem; height: 60px; font-weight: 600; max-width: 600px;">
+            <span id="typewriter"></span><span class="cursor">|</span>
           </div>
+          
           <p class="reveal" style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem; max-width: 500px;">
             I am Kelvin Ikpeni — a full-stack developer passionate about crafting secure, scalable, and beautiful web applications from the ground up.
           </p>
@@ -96,15 +103,48 @@
           <a href="/portfolio" class="btn btn-secondary">View All Projects &rarr;</a>
         </div>
         
-        <!-- Added class "projects-grid" for the grid layout -->
-        <div id="featured-projects-grid" class="projects-grid">
+        <div id="featured-projects-grid" class="projects-grid tilt-grid">
           <p style="color: var(--text-secondary); grid-column: 1 / -1;">Loading projects...</p>
         </div>
       </div>
     </section>
 
-    <!-- PROCESS SECTION -->
+    <!-- BIO & STATS SECTION -->
     <section class="section" style="background: var(--bg-surface); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+      <div class="container">
+        <div class="bio-grid">
+          <div class="bio-content reveal">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Turning Complex Problems Into <span class="text-gradient">Elegant Solutions.</span></h2>
+            <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+              My journey into web development started with a simple curiosity about how the internet works. Today, I build full-stack applications that solve real-world problems. I specialize in the Node.js ecosystem, architecting secure backends and pairing them with beautiful, responsive frontends.
+            </p>
+            <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+              Whether I'm building an educational platform, an e-commerce marketplace, or a developer tool, my goal remains the same: to write clean, maintainable code that delivers an exceptional user experience.
+            </p>
+            <a href="/about" class="btn btn-primary">Read My Full Story</a>
+          </div>
+          
+          <!-- COUNT UP STATS -->
+          <div class="bio-stats reveal">
+            <div class="stat-card">
+              <h3 class="count-up" data-target="6">0</h3>
+              <p>Digital Products</p>
+            </div>
+            <div class="stat-card">
+              <h3 class="count-up" data-target="100" data-suffix="%">0</h3>
+              <p>Commitment</p>
+            </div>
+            <div class="stat-card">
+              <h3>24/7</h3>
+              <p>Continuous Learning</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS SECTION -->
+    <section class="section">
       <div class="container">
         <h2 class="reveal" style="font-size: 2.5rem; text-align: center; margin-bottom: 3rem;">How I Bring Ideas to Life</h2>
         <div class="process-grid">
@@ -128,7 +168,7 @@
     </section>
 
     <!-- FAQ SECTION -->
-    <section class="section">
+    <section class="section" style="background: var(--bg-surface); border-top: 1px solid rgba(255,255,255,0.05);">
       <div class="container" style="max-width: 800px;">
         <h2 class="reveal" style="font-size: 2.5rem; text-align: center; margin-bottom: 3rem;">Frequently Asked Questions</h2>
         
